@@ -1,33 +1,30 @@
 # Vision One IAM Accounts Retrieval Script
 
-This Python script retrieves IAM accounts from [Trend Micro's Vision One API](https://automation.trendmicro.com/xdr/api-v3). You can save the output as either a JSON or CSV file based on a simple flag.
+This Bash script retrieves IAM accounts from [Trend Micro's Vision One API](https://automation.trendmicro.com/xdr/api-v3). You can save the output as either a JSON or CSV file based on a simple flag.
 
 ## Prerequisites
 
-- Python 3.x
-- `requests` library
+- A Unix-like environment (Linux, macOS) with Bash installed.
+- `jq` installed on your system (used for parsing JSON).
+  - You can install `jq` using:
+    - **macOS**: `brew install jq` (requires Homebrew)
+    - **Debian/Ubuntu**: `sudo apt-get install jq`
+    - **CentOS/RHEL**: `sudo yum install jq`
 - A valid Vision One API token. Please see [authentication](https://automation.trendmicro.com/xdr/Guides/Authentication) documentation for more info.
 
 ## Installation
 
-Before running the script, make sure you have Python installed on your machine.
+Before running the script, make sure you have Bash and `jq` installed/enabled on your machine.
 
 1. Clone or download this repository.
 
    ```bash
    git clone https://github.com/jmlake569/get_v1_accounts.git
    ```
-
-2. Navigate to the correct folder based on the script you want (in this example we will use python).
-
-   ```bash
-   cd get_v1_accounts/python
-   ```
-
-3. Install the depedencies.
+2. Navigate to the correct folder based on the script you want (in this example we will use bash).
 
    ```bash
-   pip install requests
+   cd get_v1_accounts/bash
    ```
 
 ## Usage
@@ -37,22 +34,24 @@ To use the script, you'll need a Bearer token for authentication with Vision One
 ### Basic Command Structure
 
 To use the script, you need to specify:
+
 - The `-token` parameter with a valid API token.
 - One of the following output flags:
   - `-json`: To save the output as a JSON file.
   - `-csv`: To save the output as a CSV file.
-Example Command:
+
+### Example Commands
+
+#### Save as JSON
 
 ```bash
-
-python3 get_iam_accounts.py --token <YOUR_BEARER_TOKEN> --json
-
+./get_iam_accounts.ps1 -t "your_token" -j
 ```
 
+#### Save as CSV
+
 ```bash
-
-python3 get_iam_accounts.py --token <YOUR_BEARER_TOKEN> --csv
-
+./get_iam_accounts.ps1 -t "your_token" -c
 ```
 
 ### Output
